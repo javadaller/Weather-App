@@ -6,8 +6,8 @@ footer {
     align-items: center;
     padding:0 3%;
 
-    color:var(--colorFooterText);
-    background-color: var(--colorFooterBackground);
+    color:var(--colorText1);
+    background-color: var(--color1);
 
     #socials {
         @include box(15%,100%);
@@ -26,6 +26,6 @@ footer {
     }
 
     p {
-        font-size: 2vw;
+        font-size: 3vw;
     }
 }

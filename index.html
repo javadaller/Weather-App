@@ -17,27 +17,99 @@
 
     <body>
 
-        <header>
-
-            <img id="logo" class="svg" src="assets/images/weather_icons/windy-line.svg" alt="logo">
-
-            <h1>Weather App</h1>
-
-            <img id="darkmode" class="svg" src="assets/images/weather_icons/cloudy-line.svg" alt="darkmode">
-
-            <section id="clouds">
-                <div id="cloud1"></div>
-                <div id="cloud2"></div>
-                <div id="cloud3"></div>
-            </section>
-
-        </header>
-
-        
-
         <main>
 
+            <section id="background"></section>
 
+            <section id="mainContainer">
+
+                    <div id="preview">
+
+                        <!-- location & date -->
+                        <div id="previewLocation">
+
+                            <div id="locationSelect">
+                                <img class="svg" src="" alt="location">
+                            </div>
+
+                            <h3 id="locationCity"></h3>
+                            <p id="locationCountry"></p>
+
+                            <h4 id="day"></h4>
+                            <p id="date"></p> 
+
+                        </div>
+                        
+                        <!-- preview -->
+                        <div id="previewWeather">
+
+                            <div id="weather">
+                                <h2 id="weatherType"></h2>
+                                <img class="svg" src="" alt="weather">
+                            </div>
+
+                            <div id="temperatures">
+                                <div id="temperatureDay"></div>
+                                <div id="temperatureNight"></div>
+                            </div>
+
+                        </div>
+
+                        <!-- details -->
+                        <div id="details">
+
+                            <div id="rainfall">
+                                <h2>Rainfall</h2>
+                                <p id="rainfallInfo"></p>
+                            </div>
+
+                            <div id="wind">
+                                <h2>Wind</h2>
+                                <p id="windInfo"></p>
+                            </div>
+
+                            <div id="humidity">
+                                <h2>Humidity</h2>
+                                <p id="humidityInfo"></p>
+                            </div>
+
+                            <div id="ap">
+                                <h2>AP</h2>
+                                <p id="apInfo"></p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- end preview -->
+
+                    <!-- week view -->
+                    <div id="weekView">
+
+                    </div>
+
+                    <!-- celcius selection -->
+                    <div id="celciusSelect">
+                        <img class="svg" src="" alt="celcius">
+                    </div>
+    
+                    <!-- details selection -->
+                    <div id="detailsSelect">
+                        <p>details</p>
+                        <img class="svg" src="" alt="details">
+                    </div>
+
+                    <!-- fahrenheit selection -->
+                    <div id="fahrenheitSelect">
+                        <img class="svg" src="" alt="fahrenheit">
+                    </div>
+
+                    <!-- schedule selection -->
+                    <div id="weekSelect">
+                        <img class="svg" src="" alt="schedule">
+                    </div>
+
+            </section>
 
         </main>
     

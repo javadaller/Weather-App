@@ -1,27 +1,15 @@
 html[data-theme="light"] {
-    --colorHeaderBackground:#{$colorHeaderBackgroundLight};
-    --colorHeaderText:#{$colorHeaderTextLight};
-    --colorMainBackground:#{$colorMainBackgroundLight};
-    --colorMainText:#{$colorMainTextLight};
-    --colorListBackground:#{$colorListBackgroundLight};
-    --colorListHeaderBackground:#{$colorListHeaderBackgroundLight};
-    --colorTaskBackground:#{$colorTaskBackgroundLight};
-    --colorTaskText:#{$colorTaskTextLight};
-    --colorFooterBackground:#{$colorFooterBackgroundLight};
-    --colorFooterText:#{$colorFooterTextLight};
+    --color1:#{$color1Light};
+    --color1:#{$color1Light};
+    --colorText1:#{$colorText1Light};
+    --colorText2:#{$colorText2Light};
 }
 
 html[data-theme="dark"] {
-    --colorHeaderBackground:#{$colorHeaderBackgroundDark};
-    --colorHeaderText:#{$colorHeaderTextDark};
-    --colorMainBackground:#{$colorMainBackgroundDark};
-    --colorMainText:#{$colorMainTextDark};
-    --colorListBackground:#{$colorListBackgroundDark};
-    --colorListHeaderBackground:#{$colorListHeaderBackgroundDark};
-    --colorTaskBackground:#{$colorTaskBackgroundDark};
-    --colorTaskText:#{$colorTaskTextDark};
-    --colorFooterBackground:#{$colorFooterBackgroundDark};
-    --colorFooterText:#{$colorFooterTextDark};
+    --color1:#{$color1Dark};
+    --color1:#{$color1Dark};
+    --colorText1:#{$colorText1Dark};
+    --colorText2:#{$colorText2Dark};
 }
 
 .svgLightMode{
