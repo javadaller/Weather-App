@@ -1,0 +1,13 @@
+@font-face {
+ 	font-family: 'longCang';
+ 	src:url('../fonts/Long_Cang/LongCang-Regular.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('../fonts/Ubuntu_Sans/UbuntuSans-VariableFont_wdth,wght.ttf') format('truetype')
+}
+
+body {
+    font-family: Ubuntu;
+}

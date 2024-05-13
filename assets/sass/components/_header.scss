@@ -1,0 +1,40 @@
+header {
+    @include box(100%,15dvh);
+    padding:0 3%;
+
+    color:var(--colorHeaderText);
+    background-color: var(--colorHeaderBackground);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #logo {
+        height:60%;
+    }
+
+    h1 {
+        font-family: LongCang;
+        font-size: 6vw;
+    }
+
+    #darkmode {
+        height:25%;
+        cursor:pointer;
+        transition: 0.3s;
+    }
+    #darkmode:hover {
+        transform:scale(120%);
+    }
+
+    #clouds {
+        @include box(100%,5dvh);
+        position:absolute;
+        left:0;
+        top:15dvh;
+
+        #cloud1 {
+            width:30%;
+        }
+    }
+}

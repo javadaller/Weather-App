@@ -1,0 +1,31 @@
+footer {
+    @include box(100%,10dvh);
+
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 3%;
+
+    color:var(--colorFooterText);
+    background-color: var(--colorFooterBackground);
+
+    #socials {
+        @include box(15%,100%);
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            height:60%;
+            transition:0.3s;
+            cursor:pointer;
+        }
+        img:hover {
+            transform: scale(120%);
+        }
+    }
+
+    p {
+        font-size: 2vw;
+    }
+}

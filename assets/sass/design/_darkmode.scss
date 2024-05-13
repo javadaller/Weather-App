@@ -1,0 +1,33 @@
+html[data-theme="light"] {
+    --colorHeaderBackground:#{$colorHeaderBackgroundLight};
+    --colorHeaderText:#{$colorHeaderTextLight};
+    --colorMainBackground:#{$colorMainBackgroundLight};
+    --colorMainText:#{$colorMainTextLight};
+    --colorListBackground:#{$colorListBackgroundLight};
+    --colorListHeaderBackground:#{$colorListHeaderBackgroundLight};
+    --colorTaskBackground:#{$colorTaskBackgroundLight};
+    --colorTaskText:#{$colorTaskTextLight};
+    --colorFooterBackground:#{$colorFooterBackgroundLight};
+    --colorFooterText:#{$colorFooterTextLight};
+}
+
+html[data-theme="dark"] {
+    --colorHeaderBackground:#{$colorHeaderBackgroundDark};
+    --colorHeaderText:#{$colorHeaderTextDark};
+    --colorMainBackground:#{$colorMainBackgroundDark};
+    --colorMainText:#{$colorMainTextDark};
+    --colorListBackground:#{$colorListBackgroundDark};
+    --colorListHeaderBackground:#{$colorListHeaderBackgroundDark};
+    --colorTaskBackground:#{$colorTaskBackgroundDark};
+    --colorTaskText:#{$colorTaskTextDark};
+    --colorFooterBackground:#{$colorFooterBackgroundDark};
+    --colorFooterText:#{$colorFooterTextDark};
+}
+
+.svgLightMode{
+    filter: brightness(0) saturate(100%) invert(36%) sepia(22%) saturate(735%) hue-rotate(159deg) brightness(90%) contrast(82%);
+}
+
+.svgDarkMode {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(240deg) brightness(98%) contrast(105%);
+}

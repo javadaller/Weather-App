@@ -1,0 +1,32 @@
+//Light
+$colorHeaderBackgroundLight:#73b6da;
+$colorHeaderTextLight:#2f3b42;
+
+$colorMainBackgroundLight: linear-gradient(#C6EAFF, #2C9FDF);
+$colorMainTextLight:#456375;
+
+$colorListBackgroundLight: #ffffff;
+$colorListHeaderBackgroundLight: #AACBDD;
+
+$colorTaskBackgroundLight: #ECF1F4;
+$colorTaskTextLight: #456375;
+
+$colorFooterBackgroundLight:$colorHeaderBackgroundLight;
+$colorFooterTextLight:$colorHeaderTextLight;
+
+//Dark
+$colorHeaderBackgroundDark:#456375;
+$colorHeaderTextDark:#ffffff;
+
+$colorMainBackgroundDark: linear-gradient(#465B66, #000000);
+$colorMainTextDark:#ffffff;
+
+$colorListBackgroundDark: #5E849B;
+$colorListHeaderBackgroundDark: #456375;
+
+$colorTaskBackgroundDark: #456375;
+$colorTaskTextDark: #ffffff;
+
+$colorFooterBackgroundDark:#456375;
+$colorFooterTextDark:#ffffff;
+
