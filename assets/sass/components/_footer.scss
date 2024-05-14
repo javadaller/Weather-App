@@ -1,5 +1,5 @@
 footer {
-    @include box(100%,10dvh);
+    @include box(100%,3dvh);
 
     display:flex;
     justify-content: space-between;
@@ -7,7 +7,7 @@ footer {
     padding:0 3%;
 
     color:var(--colorText1);
-    background-color: var(--color1);
+    //background-color: var(--color11);
 
     #socials {
         @include box(15%,100%);

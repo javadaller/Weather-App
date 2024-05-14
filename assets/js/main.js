@@ -1,3 +1,7 @@
+import { init } from "./init.js";
 import { sleep } from "./fnc.js";
 
-//INIT DATA
+init()
+
+
+//5e4412300bae1ac869ddb089fa529954

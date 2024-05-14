@@ -1,0 +1,77 @@
+#preview {
+    position: relative;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    padding-left: 25%;
+
+        #locationSelect {
+            position: absolute;
+            top:2%;
+            left:2%;
+            @include box(10vw);
+            border-radius: 50%;
+            box-shadow: inset 0px 0px 15px 0px #00000047;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor:pointer;
+
+            img {
+                height:60%;
+                transition: 0.3s;
+            }
+
+            img:hover {
+                transform: scale(120%);
+            }
+
+            #locationID {
+                display: flex;
+                width:10%;
+            }
+        }
+
+    #previewLocation {
+        
+        p {
+            color:var(--colorText2);
+        }
+        
+    }
+
+    #previewWeather {
+        width:70%;
+        display: flex;
+        justify-content: space-between;
+
+        #weather {
+
+            h2 {
+                text-align: center;
+            }
+        }
+
+        #temperatures {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            #temperatureDay {
+                font-size: 3rem;
+                font-weight: 700;
+            }
+
+            #temperatureNight {
+                color:var(--colorText2);
+                font-size: 2rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

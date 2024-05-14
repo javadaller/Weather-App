@@ -21,95 +21,104 @@
 
             <section id="background"></section>
 
-            <section id="mainContainer">
+            <div id="bloc1">
 
-                    <div id="preview">
+                <div id="preview" class="softInset">
 
-                        <!-- location & date -->
-                        <div id="previewLocation">
-
-                            <div id="locationSelect">
-                                <img class="svg" src="" alt="location">
-                            </div>
-
-                            <h3 id="locationCity"></h3>
-                            <p id="locationCountry"></p>
-
-                            <h4 id="day"></h4>
-                            <p id="date"></p> 
-
+                    <!-- location & date -->
+                    <div id="locationSelect">
+                        <img id="locationSelectButton" class="svg" src="assets/images/icons/location.svg" alt="location">
+                        
+                        <div id="locationID">
+                            <input type="text" name="locationInput" id="locationInputID">
+                            <input type="button" value="ok" id="locationOkButton">
                         </div>
                         
-                        <!-- preview -->
-                        <div id="previewWeather">
-
-                            <div id="weather">
-                                <h2 id="weatherType"></h2>
-                                <img class="svg" src="" alt="weather">
-                            </div>
-
-                            <div id="temperatures">
-                                <div id="temperatureDay"></div>
-                                <div id="temperatureNight"></div>
-                            </div>
-
-                        </div>
-
-                        <!-- details -->
-                        <div id="details">
-
-                            <div id="rainfall">
-                                <h2>Rainfall</h2>
-                                <p id="rainfallInfo"></p>
-                            </div>
-
-                            <div id="wind">
-                                <h2>Wind</h2>
-                                <p id="windInfo"></p>
-                            </div>
-
-                            <div id="humidity">
-                                <h2>Humidity</h2>
-                                <p id="humidityInfo"></p>
-                            </div>
-
-                            <div id="ap">
-                                <h2>AP</h2>
-                                <p id="apInfo"></p>
-                            </div>
-
-                        </div>
-
+                        
+                            
                     </div>
-                    <!-- end preview -->
+                    
+                    <div id="previewLocation">
+    
+                        <h3 id="locationCity"></h3>
+                        <p id="locationCountry"></p>
 
-                    <!-- week view -->
-                    <div id="weekView">
-
+                        <h4 id="day"></h4>
+                        <p id="date"></p> 
                     </div>
-
-                    <!-- celcius selection -->
-                    <div id="celciusSelect">
-                        <img class="svg" src="" alt="celcius">
+                    
+                    <!-- preview -->
+                    <div id="previewWeather">
+    
+                        <div id="weather">
+                            <h2 id="weatherType"></h2>
+                            <img id="weatherIcon" class="svg" src="" alt="weather">
+                        </div>
+    
+                        <div id="temperatures">
+                            <div id="temperatureDay" class="glow"></div>
+                            <div id="temperatureNight">-6°</div>
+                        </div>
+    
                     </div>
     
-                    <!-- details selection -->
-                    <div id="detailsSelect">
-                        <p>details</p>
-                        <img class="svg" src="" alt="details">
+                    <!-- details -->
+                    <div id="details">
+    
+                        <div id="rainfall">
+                            <h2>Rainfall</h2>
+                            <p id="rainfallInfo"></p>
+                        </div>
+    
+                        <div id="wind">
+                            <h2>Wind</h2>
+                            <p id="windInfo"></p>
+                        </div>
+    
+                        <div id="humidity">
+                            <h2>Humidity</h2>
+                            <p id="humidityInfo"></p>
+                        </div>
+    
+                        <div id="ap">
+                            <h2>AP</h2>
+                            <p id="apInfo"></p>
+                        </div>
+    
                     </div>
-
-                    <!-- fahrenheit selection -->
-                    <div id="fahrenheitSelect">
-                        <img class="svg" src="" alt="fahrenheit">
+                    <!-- end preview -->
+    
+                    <!-- week view -->
+                    <div id="weekView">
+    
                     </div>
+    
+                </div>
+    
+                <!-- celcius selection -->
+                <div id="celciusSelect" class="softInset">
+                    <img class="svg" src="assets/images/weather_icons/celsius.svg" alt="celcius">
+                </div>
 
-                    <!-- schedule selection -->
-                    <div id="weekSelect">
-                        <img class="svg" src="" alt="schedule">
-                    </div>
+            </div>
+        
+            <div id="bloc2">
+                <!-- details selection -->
+                <div id="detailsSelect" class="softInset">
+                    <p>details</p>
+                    <img class="svg glow" src="assets/images/icons/zoom.svg" alt="details">
+                </div>
 
-            </section>
+                <!-- fahrenheit selection -->
+                <div id="fahrenheitSelect" class="softInset">
+                    <img class="svg" src="assets/images/weather_icons/fahrenheit.svg" alt="fahrenheit">
+                </div>
+            </div>
+                
+            <!-- schedule selection -->
+            <div id="weekSelect" class="softInset">
+                <img class="svg glow" src="assets/images/icons/calendar.svg" alt="schedule">
+            </div>
 
         </main>
     
