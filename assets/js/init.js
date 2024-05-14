@@ -1,12 +1,16 @@
 import { details } from "./details.js";
 import { getWeather } from "./getWeather.js";
+import { handleInputChange } from "./inputChange.js";
 import { getLocation } from "./getLocation.js";
+import { week } from "./week.js";
 
 //INIT
 export function init() {
     document.querySelector('#details').style.display = 'none'
     document.querySelector('#weekView').style.display = 'none'
     document.querySelector('#locationID').style.display = 'none'
+    document.querySelector('#goBack').style.display = 'none'
+    document.querySelector('#goBackText').style.display = 'none'
 
     //LOCAL STORAGE
     const units = localStorage.getItem('units')
@@ -42,27 +46,33 @@ export function init() {
         isOpen = true
         inputContainer.style.display = 'block';
         selectLocationButton.style.display = 'none';
+        inputText.focus()
     });
 
     submitButton.addEventListener('click', () => {
+        getWeather(null,null,inputText.value)
         isOpen = false
         inputText.value=''
         inputContainer.style.display = 'none';
         selectLocationButton.style.display = 'block';
-        getWeather()
     });
 
     document.addEventListener('keyup', (event) => {
         if(event.key=='Enter') {
             if(isOpen) {
+                getWeather(null,null,inputText.value)
                 isOpen = false
                 inputText.value=''
                 inputContainer.style.display = 'none';
                 selectLocationButton.style.display = 'block';
-                getWeather()
             }
         }
     })
+
+    //test suggestion
+    // inputText.addEventListener('change', (event) => {
+    //     handleInputChange(event)
+    // });
 
     //temp format
     document.querySelector('#celciusSelect').addEventListener('click', () => {
@@ -79,5 +89,10 @@ export function init() {
     document.querySelector('#detailsSelect').addEventListener('click', () => {
         details()
     })
+    document.querySelector('#detailsSelect').setAttribute('status','details')
 
+    //week
+    document.querySelector('#weekSelect').addEventListener('click', () => {
+        week()
+    })
 }

@@ -31,6 +31,7 @@
                         
                         <div id="locationID">
                             <input type="text" name="locationInput" id="locationInputID">
+                            <ul id="suggestionList"></ul>
                             <input type="button" value="ok" id="locationOkButton">
                         </div>
                         
@@ -64,26 +65,38 @@
     
                     <!-- details -->
                     <div id="details">
-    
-                        <div id="rainfall">
-                            <h2>Rainfall</h2>
-                            <p id="rainfallInfo"></p>
+
+                        <div id="detailsImages">
+                            <img class="svg" src="assets/images/weather_icons/drizzle-line.svg" alt="rainfall">
+                            <img class="svg" src="assets/images/weather_icons/windy-line.svg" alt="wind">
+                            <img class="svg" src="assets/images/weather_icons/water-percent-line.svg" alt="humidity">
+                            <img class="svg" src="assets/images/weather_icons/barometer.svg" alt="ap">
                         </div>
-    
-                        <div id="wind">
-                            <h2>Wind</h2>
-                            <p id="windInfo"></p>
+
+                        <div id="detailsContainer">
+                            <div id="rainfall">
+                            
+                                <h2>Rainfall</h2>
+                                <p id="rainfallInfo"></p>
+                            </div>
+        
+                            <div id="wind">
+                                <h2>Wind</h2>
+                                <p id="windInfo"></p>
+                            </div>
+        
+                            <div id="humidity">
+                                <h2>Humidity</h2>
+                                <p id="humidityInfo"></p>
+                            </div>
+        
+                            <div id="ap">
+                                <h2>AP</h2>
+                                <p id="apInfo"></p>
+                            </div>
                         </div>
-    
-                        <div id="humidity">
-                            <h2>Humidity</h2>
-                            <p id="humidityInfo"></p>
-                        </div>
-    
-                        <div id="ap">
-                            <h2>AP</h2>
-                            <p id="apInfo"></p>
-                        </div>
+                        
+                        
     
                     </div>
                     <!-- end preview -->
@@ -97,7 +110,7 @@
     
                 <!-- celcius selection -->
                 <div id="celciusSelect" class="softInset">
-                    <img class="svg" src="assets/images/weather_icons/celsius.svg" alt="celcius">
+                    <img id="celcius" class="svg" src="assets/images/weather_icons/celsius.svg" alt="celcius">
                 </div>
 
             </div>
@@ -105,13 +118,17 @@
             <div id="bloc2">
                 <!-- details selection -->
                 <div id="detailsSelect" class="softInset">
-                    <p>details</p>
-                    <img class="svg glow" src="assets/images/icons/zoom.svg" alt="details">
+                    <p id="detailsText">details</p>
+                    <img id="detailsIcon" class="svg glow" src="assets/images/icons/zoom.svg" alt="details">
+
+                    <!-- go back -->
+                    <p id="goBackText">back</p>
+                    <img id="goBack" class="svg glow" src="assets/images/icons/goBack.svg" alt="go back">
                 </div>
 
                 <!-- fahrenheit selection -->
                 <div id="fahrenheitSelect" class="softInset">
-                    <img class="svg" src="assets/images/weather_icons/fahrenheit.svg" alt="fahrenheit">
+                    <img id="fahrenheit" class="svg" src="assets/images/weather_icons/fahrenheit.svg" alt="fahrenheit">
                 </div>
             </div>
                 

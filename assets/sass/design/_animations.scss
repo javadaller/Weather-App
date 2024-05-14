@@ -41,6 +41,9 @@
 .fadeIn {
     animation:fadeIn 0.3s linear forwards;
 }
+.fadeIn1s {
+    animation:fadeIn 1s linear forwards;
+}
 @keyframes fadeIn {
     0%{
         opacity:0;
@@ -49,5 +52,64 @@
     100%{
         opacity:1;
         filter:blur(0);
+    }
+}
+
+.flip1 {
+    animation: flip1 0.3s ease-out;
+    transform-origin: center center;
+}
+
+@keyframes flip1 {
+    0% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+
+    100% {
+        transform: rotate3d(-1, 1, 0, 360deg);
+    }
+}
+
+.flip2 {
+    animation: flip2 0.3s ease-out;
+    transform-origin: center center;
+}
+
+@keyframes flip2 {
+    0% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+
+    100% {
+        transform: rotate3d(1, 1, 0, 360deg);
+    }
+}
+
+.translateGoback {
+    animation: translateGoback 0.3s ease-out forwards;
+    transform-origin: center center;
+}
+
+@keyframes translateGoback {
+    0% {
+        transform: translateX(26%) rotate3d(0, 0, 1, 0deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate3d(-1, 1, 0, 360deg);
+    }
+}
+
+.translateGobackReverse {
+    animation: translateGobackReverse 0.3s ease-out forwards;
+    transform-origin: center center;
+}
+@keyframes translateGobackReverse {
+    0% {
+        transform: translateX(0) rotate3d(0, 0, 1, 0deg);
+    }
+
+    100% {
+        transform: translateX(26%) rotate3d(-1, 1, 0, 360deg);
     }
 }

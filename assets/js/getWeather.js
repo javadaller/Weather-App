@@ -1,7 +1,7 @@
-export async function getWeather(latitude, longitude, city, country) {
+export async function getWeather(latitude, longitude, city) {
 
     if(latitude==null) {
-        return weather(city,country)
+        return weather(city)
     }
 
     const apiKey = '5e4412300bae1ac869ddb089fa529954'
@@ -21,11 +21,19 @@ export async function getWeather(latitude, longitude, city, country) {
     }
 }
 
-async function weather(city, country) {
+async function weather(city,country) {
     const unit = localStorage.getItem('units')
     const apiKey = '5e4412300bae1ac869ddb089fa529954'
 
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=${unit}&appid=${apiKey}`
+    let apiUrl='';
+
+    if(country!=null) {
+        apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=${unit}&appid=${apiKey}`
+    } else {
+        apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${apiKey}`
+    }
+
+    
 
     try {
         const response = await fetch(apiUrl)
@@ -41,12 +49,12 @@ async function weather(city, country) {
 }
 
 
-function loadWeather(data, city, country) {
+function loadWeather(data) {
     console.log(data)
 
     // Location
-    document.querySelector('#locationCity').innerHTML = city
-    document.querySelector('#locationCountry').innerHTML = country
+    document.querySelector('#locationCity').innerHTML = data.city.name
+    document.querySelector('#locationCountry').innerHTML = data.city.country
 
     // Date
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -85,6 +93,18 @@ function loadWeather(data, city, country) {
 
     document.querySelector('#temperatureNight').innerHTML = Math.trunc(data.list[temperatureIndex].main.temp) + '°'
 
+    //details
+    document.querySelector('#rainfallInfo').innerHTML = data.list[0].rain['3h']+'mm'
+    document.querySelector('#windInfo').innerHTML = degreesToDirection(data.list[0].wind.deg) + ' ' + data.list[0].wind.speed + 'km/h'
+    document.querySelector('#humidityInfo').innerHTML = data.list[0].main.humidity + '%'
+    document.querySelector('#apInfo').innerHTML = data.list[0].main.pressure+'hpa'
+
+}
+
+function degreesToDirection(degrees) {
+    const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N']
+    const index = Math.round(degrees / 45)
+    return directions[index % 8]
 }
 
 

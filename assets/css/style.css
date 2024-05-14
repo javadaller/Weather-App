@@ -371,6 +371,10 @@ template {
   animation: fadeIn 0.3s linear forwards;
 }
 
+.fadeIn1s {
+  animation: fadeIn 1s linear forwards;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -379,6 +383,58 @@ template {
   100% {
     opacity: 1;
     filter: blur(0);
+  }
+}
+.flip1 {
+  animation: flip1 0.3s ease-out;
+  transform-origin: center center;
+}
+
+@keyframes flip1 {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(-1, 1, 0, 360deg);
+  }
+}
+.flip2 {
+  animation: flip2 0.3s ease-out;
+  transform-origin: center center;
+}
+
+@keyframes flip2 {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, 360deg);
+  }
+}
+.translateGoback {
+  animation: translateGoback 0.3s ease-out forwards;
+  transform-origin: center center;
+}
+
+@keyframes translateGoback {
+  0% {
+    transform: translateX(26%) rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    transform: translateX(0) rotate3d(-1, 1, 0, 360deg);
+  }
+}
+.translateGobackReverse {
+  animation: translateGobackReverse 0.3s ease-out forwards;
+  transform-origin: center center;
+}
+
+@keyframes translateGobackReverse {
+  0% {
+    transform: translateX(0) rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    transform: translateX(26%) rotate3d(-1, 1, 0, 360deg);
   }
 }
 .glow {
@@ -390,7 +446,7 @@ template {
 }
 
 html[data-theme=light] {
-  --color11:rgba(105, 178, 217, 0.8431372549);
+  --color11:rgba(71, 130, 161, 0.8431372549);
   --color12:rgba(69, 144, 184, 0.568627451);
   --color13:rgba(50, 111, 143, 0.8352941176);
   --color2:rgba(32, 152, 32, 0.8666666667);
@@ -512,6 +568,36 @@ footer p {
   font-size: 2rem;
   font-weight: 600;
 }
+#preview #details {
+  width: 80%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+  left: 2%;
+}
+#preview #details #detailsImages {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 20%;
+}
+#preview #details #detailsImages img {
+  height: 10%;
+}
+#preview #details #detailsContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#preview #details #detailsContainer div p {
+  color: var(--colorText2);
+}
 
 main {
   width: 100%;
@@ -594,6 +680,9 @@ main #bloc2 #detailsSelect img {
 main #bloc2 #detailsSelect img:hover {
   transform: scale(120%);
 }
+main #bloc2 #detailsSelect #goBack {
+  height: 50%;
+}
 main #bloc2 #fahrenheitSelect {
   width: 15%;
   height: 50%;
@@ -632,4 +721,5 @@ main #weekSelect img:hover {
 
 body {
   overflow: hidden;
+  opacity: 0;
 }/*# sourceMappingURL=style.css.map */
