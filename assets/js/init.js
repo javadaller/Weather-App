@@ -1,8 +1,7 @@
-import { details } from "./details.js";
-import { escapeHTML } from "./fnc.js";
-import { getWeather } from "./getWeather.js";
-import { handleInputChange } from "./inputChange.js";
-import { week } from "./week.js";
+import { details } from "./details.js"
+import { escapeHTML } from "./fnc.js"
+import { getWeather } from "./getWeather.js"
+import { week } from "./week.js"
 
 
 //INIT
@@ -52,8 +51,8 @@ export function init() {
         getWeather(null,null,escapeHTML(inputText.value))
         isOpen = false
         inputText.value=''
-        inputContainer.style.display = 'none';
-        selectLocationButton.style.display = 'block';
+        inputContainer.style.display = 'none'
+        selectLocationButton.style.display = 'block'
     });
 
     document.addEventListener('keyup', (event) => {
@@ -62,16 +61,11 @@ export function init() {
                 getWeather(null,null,escapeHTML(inputText.value))
                 isOpen = false
                 inputText.value=''
-                inputContainer.style.display = 'none';
-                selectLocationButton.style.display = 'block';
+                inputContainer.style.display = 'none'
+                selectLocationButton.style.display = 'block'
             }
         }
     })
-
-    //test suggestion
-    // inputText.addEventListener('change', (event) => {
-    //     handleInputChange(event)
-    // });
 
     //temp format
     document.querySelector('#celciusSelect').addEventListener('click', () => {
@@ -93,5 +87,14 @@ export function init() {
     //week
     document.querySelector('#weekSelect').addEventListener('click', () => {
         week()
+    })
+
+    //socials
+    document.querySelector('#github').addEventListener('click',() => {
+        open('https://github.com/javadaller','_blank')
+    })
+
+    document.querySelector('#linkedin').addEventListener('click',() => {
+        open('https://www.linkedin.com/in/arnaud-van-acker-814959262/','_blank')
     })
 }

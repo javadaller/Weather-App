@@ -1,9 +1,13 @@
 #weekView {
-    @include box(95%,80%);
+    @include box(60%,80%);
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    position: absolute;
+    top:-5%;
+    left:13%;
 
     .weekViewContainer {
         @include box(100%,15%);

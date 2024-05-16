@@ -492,6 +492,7 @@ footer {
   padding: 0 3%;
   gap: 50px;
   color: var(--colorText1);
+  background: linear-gradient(0deg, var(--color11) 50%, rgba(255, 255, 255, 0) 100%);
 }
 footer #socials {
   width: 15%;
@@ -502,7 +503,7 @@ footer #socials {
   gap: 50px;
 }
 footer #socials img {
-  height: 60%;
+  height: 70%;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -519,6 +520,7 @@ footer p {
   flex-direction: column;
   justify-content: space-around;
   padding-left: 25%;
+  overflow: hidden;
 }
 #preview #locationSelect {
   position: absolute;
@@ -543,6 +545,17 @@ footer p {
 #preview #locationSelect #locationID {
   display: flex;
   width: 10%;
+}
+#preview #cityImage {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1000%;
+  height: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: contrast(150%);
 }
 #preview #previewLocation p {
   color: var(--colorText2);
@@ -610,12 +623,15 @@ footer p {
 }
 
 #weekView {
-  width: 95%;
+  width: 60%;
   height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: -5%;
+  left: 13%;
 }
 #weekView .weekViewContainer {
   width: 100%;
@@ -661,7 +677,7 @@ main #background {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: contrast(170%) brightness(150%);
+  filter: opacity(70%);
 }
 main #bloc1 {
   width: 100%;

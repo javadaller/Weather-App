@@ -29,7 +29,7 @@ export async function details() {
         previewArray.forEach(element => {
             element.style.display='none'
         });
-        previewArray[3].style.display='flex'
+        previewArray[4].style.display='flex'
 
         await sleep(300)
         goBack.style.display='block'
@@ -42,21 +42,18 @@ export async function details() {
         div.classList.add('translateGoback')
         goBack.style.display='none'
         goBackText.style.display='none'
-        previewArray[3].style.display='none'
+        previewArray[4].style.display='none'
         celcius.style.display='block'
         fahrenheit.style.display='flex'
         celciusContainer.style.display='flex'
         weekSelect.style.display = 'flex'
-        
-        previewArray.forEach(element => {
-            if (element!=previewArray[3]) {
-                if(element==previewArray[0] || element==previewArray[2]) {
-                    element.style.display='flex'
-                } else if(element!=weekView) {
-                    element.style.display='block'
-                }
-            }
-        });
+
+        previewArray[0].style.display='flex'
+        previewArray[1].style.display='block'
+        previewArray[2].style.display='block'
+        previewArray[3].style.display='flex'
+        previewArray[4].style.display='none'
+        previewArray[5].style.display='flex'
 
         weekView.style.display='none'
 

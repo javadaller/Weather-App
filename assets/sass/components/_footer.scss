@@ -8,7 +8,8 @@ footer {
     gap:50px;
 
     color:var(--colorText1);
-    //background-color: var(--color11);
+    background: linear-gradient(0deg, var(--color11) 50%, rgba(255, 255, 255, 0) 100%);
+
 
     #socials {
         @include box(15%,100%);
@@ -18,7 +19,7 @@ footer {
         gap:50px;
 
         img {
-            height:60%;
+            height:70%;
             transition:0.3s;
             cursor:pointer;
         }

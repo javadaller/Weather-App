@@ -57,8 +57,6 @@ export async function week() {
                 }
             }
         });
-        console.log('ok')
-        weekView.style.display='none'
 
         await sleep(300)
         detailsIcon.style.display='block'

@@ -1,5 +1,5 @@
-import { createDiv, degreesToDirection } from "./fnc.js";
-import { getImage } from "./getImage.js";
+import { createDiv, degreesToDirection } from "./fnc.js"
+import { getImage, getBackground } from "./getImage.js"
 
 export async function getWeather(latitude, longitude, city) {
 
@@ -21,7 +21,7 @@ export async function getWeather(latitude, longitude, city) {
         if (!response.ok) {
             throw new Error('Failed to fetch weather data')
         }
-        const data = await response.json();
+        const data = await response.json()
         console.log(data)
         localStorage.setItem('lat',data[0].lat)
         localStorage.setItem('long',data[0].lon)
@@ -34,10 +34,13 @@ export async function getWeather(latitude, longitude, city) {
 }
 
 async function weather(city,country) {
+
+    getImage(city)
+
     const unit = localStorage.getItem('units')
     const apiKey = '5e4412300bae1ac869ddb089fa529954'
 
-    let apiUrl='';
+    let apiUrl=''
 
     if(country!=null) {
         apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=${unit}&appid=${apiKey}`
@@ -52,17 +55,19 @@ async function weather(city,country) {
         if (!response.ok) {
             throw new Error('Failed to fetch weather data')
         }
-        const data = await response.json();
+        const data = await response.json()
         return loadWeather(data, city, country)
     } catch (error) {
         console.error('Error fetching weather data:', error)
-        return null;
+        return null
     }
 }
 
 
 function loadWeather(data) {
     console.log(data)
+
+    getBackground(data.list[0].weather[0].main)
 
     // Location
     document.querySelector('#locationCity').innerHTML = data.city.name
@@ -81,10 +86,10 @@ function loadWeather(data) {
 
     // Weather
     const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0')
+    const day = String(now.getDate()).padStart(2, '0')
 
-    const formattedDate = `${year}-${month}-${day}`;
+    const formattedDate = `${year}-${month}-${day}`
 
     let temperatureIndex = 0
 
@@ -106,9 +111,9 @@ function loadWeather(data) {
 
     //details
     if (typeof data.list[0].rain !== 'undefined' && typeof data.list[0].rain['3h'] !== 'undefined') {
-        document.querySelector('#rainfallInfo').innerHTML = data.list[0].rain['3h'] + 'mm';
+        document.querySelector('#rainfallInfo').innerHTML = data.list[0].rain['3h'] + 'mm'
     } else {
-        document.querySelector('#rainfallInfo').innerHTML = 'no data';
+        document.querySelector('#rainfallInfo').innerHTML = 'no data'
     }
 
     const unit = localStorage.getItem('units')
@@ -136,13 +141,13 @@ function loadWeather(data) {
 
         //date
         const dateContainer = createDiv('div',parent,null,'dateContainer')
-        const date = new Date();
-        date.setDate(date.getDate() + i + 1);
-        const dayOfWeek = daysOfWeek[date.getDay()];
-        const monthOfYear = monthsOfYear[date.getMonth()];
-        const dayOfMonth = date.getDate();
-        createDiv('h3', dateContainer, `${dayOfWeek}`);
-        createDiv('p', dateContainer, `${monthOfYear} ${dayOfMonth}`);
+        const date = new Date()
+        date.setDate(date.getDate() + i + 1)
+        const dayOfWeek = daysOfWeek[date.getDay()]
+        const monthOfYear = monthsOfYear[date.getMonth()]
+        const dayOfMonth = date.getDate()
+        createDiv('h3', dateContainer, `${dayOfWeek}`)
+        createDiv('p', dateContainer, `${monthOfYear} ${dayOfMonth}`)
 
         //temperatures
         const tempContainer = createDiv('div',parent,null,'tempContainer')

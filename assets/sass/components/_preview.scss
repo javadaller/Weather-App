@@ -7,6 +7,8 @@
     
     padding-left: 25%;
 
+    overflow: hidden;
+
         #locationSelect {
             position: absolute;
             top:2%;
@@ -34,6 +36,18 @@
                 display: flex;
                 width:10%;
             }
+        }
+
+        #cityImage {
+            z-index: -1;
+            position: absolute;
+            top:0;
+            right:0;
+            @include box(1000%,50%);
+
+            object-fit: cover;
+
+            filter:contrast(150%)
         }
 
     #previewLocation {
