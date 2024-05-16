@@ -11,6 +11,7 @@ export function init() {
     document.querySelector('#locationID').style.display = 'none'
     document.querySelector('#goBack').style.display = 'none'
     document.querySelector('#goBackText').style.display = 'none'
+    document.querySelector('#weekChartContainer').style.display = 'none'
 
     //LOCAL STORAGE
     const units = localStorage.getItem('units')

@@ -13,6 +13,7 @@ export async function week() {
     const previewArray = Array.from(preview.children)
     const weekSelect = document.querySelector('#weekSelect')
     const weekView = document.querySelector('#weekView')
+    const chart = document.querySelector('#weekChartContainer')
 
     const status = div.getAttribute('status')
 
@@ -30,6 +31,7 @@ export async function week() {
             element.style.display='none'
         });
         weekView.style.display='flex'
+        chart.style.display='block'
 
         await sleep(300)
         goBack.style.display='block'

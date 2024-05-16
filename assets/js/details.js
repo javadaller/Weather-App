@@ -13,6 +13,7 @@ export async function details() {
     const previewArray = Array.from(preview.children)
     const weekSelect = document.querySelector('#weekSelect')
     const weekView = document.querySelector('#weekView')
+    const chart = document.querySelector('#weekChartContainer')
 
     const status = div.getAttribute('status')
 
@@ -43,6 +44,7 @@ export async function details() {
         goBack.style.display='none'
         goBackText.style.display='none'
         previewArray[4].style.display='none'
+        chart.style.display='none'
         celcius.style.display='block'
         fahrenheit.style.display='flex'
         celciusContainer.style.display='flex'

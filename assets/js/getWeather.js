@@ -169,16 +169,15 @@ async function loadWeather(data) {
     }
 
     //chart
-    await sleep(1000)
-    const ctx = document.getElementById('weekChart')
+    const ctx = document.querySelector('#weekChart')
 
     new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           datasets: [{
-            label: '°',
-            data: tempArray,
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
             borderWidth: 1
           }]
         },
