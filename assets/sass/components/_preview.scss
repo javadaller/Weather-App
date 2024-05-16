@@ -45,11 +45,16 @@
     }
 
     #previewWeather {
-        width:70%;
+        @include box(70%,25%);
         display: flex;
         justify-content: space-between;
 
         #weather {
+            padding-top: 8%;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
 
             h2 {
                 text-align: center;
@@ -59,7 +64,7 @@
         #temperatures {
             display:flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
 
             #temperatureDay {

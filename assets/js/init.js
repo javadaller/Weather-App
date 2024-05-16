@@ -1,8 +1,9 @@
 import { details } from "./details.js";
+import { escapeHTML } from "./fnc.js";
 import { getWeather } from "./getWeather.js";
 import { handleInputChange } from "./inputChange.js";
-import { getLocation } from "./getLocation.js";
 import { week } from "./week.js";
+
 
 //INIT
 export function init() {
@@ -26,12 +27,10 @@ export function init() {
                 localStorage.setItem('lat',position.coords.latitude)
                 localStorage.setItem('long',position.coords.longitude)
             });
-          } else {
-            getWeather(0,0)
-            localStorage.setItem('lat',0)
-            localStorage.setItem('long',0)
-          }          
-    }
+          }         
+    } else {
+        getWeather(localStorage.getItem('lat'),localStorage.getItem('long'),location)
+    }  
 
     //INTERFACE
 
@@ -50,7 +49,7 @@ export function init() {
     });
 
     submitButton.addEventListener('click', () => {
-        getWeather(null,null,inputText.value)
+        getWeather(null,null,escapeHTML(inputText.value))
         isOpen = false
         inputText.value=''
         inputContainer.style.display = 'none';
@@ -60,7 +59,7 @@ export function init() {
     document.addEventListener('keyup', (event) => {
         if(event.key=='Enter') {
             if(isOpen) {
-                getWeather(null,null,inputText.value)
+                getWeather(null,null,escapeHTML(inputText.value))
                 isOpen = false
                 inputText.value=''
                 inputContainer.style.display = 'none';

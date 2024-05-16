@@ -1,12 +1,20 @@
-export async function getWeather(latitude, longitude, city) {
+import { createDiv, degreesToDirection } from "./fnc.js";
+import { getImage } from "./getImage.js";
 
-    if(latitude==null) {
-        return weather(city)
-    }
+export async function getWeather(latitude, longitude, city) {
 
     const apiKey = '5e4412300bae1ac869ddb089fa529954'
 
-    const apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=${apiKey}`
+    let apiUrl;
+
+    if(latitude==null) {
+
+        apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
+
+    } else {
+
+        apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=${apiKey}`
+    }
 
     try {
         const response = await fetch(apiUrl)
@@ -14,6 +22,10 @@ export async function getWeather(latitude, longitude, city) {
             throw new Error('Failed to fetch weather data')
         }
         const data = await response.json();
+        console.log(data)
+        localStorage.setItem('lat',data[0].lat)
+        localStorage.setItem('long',data[0].lon)
+        localStorage.setItem('city',data[0].name)
         return weather(data[0].name, data[0].country)
     } catch (error) {
         console.error('Error fetching weather data:', error)
@@ -68,25 +80,24 @@ function loadWeather(data) {
     document.querySelector('#date').innerHTML = monthOfYear + ' ' + dayOfMonth
 
     // Weather
-    const currentHour = now.getHours()
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+
     let temperatureIndex = 0
 
     // Find the index for 21h
-    if (currentHour < 21) {
-        temperatureIndex = 3
-    } else {
-        for (let i = 0; i < data.list.length; i++) {
-            const time = new Date(data.list[i].dt * 1000).getHours()
-            if (time === 21) {
-                temperatureIndex = i
-                break;
-            }
+    for(let i=0; i<8; i++) {
+        if(data.list[i].dt_txt==formattedDate+' 21:00:00') {
+            temperatureIndex=i
         }
     }
 
-    document.querySelector('#weatherType').innerHTML = data.list[temperatureIndex].weather[0].main
+    document.querySelector('#weatherType').innerHTML = data.list[0].weather[0].main
 
-    const icon = data.list[temperatureIndex].weather[0].icon
+    const icon = data.list[0].weather[0].icon
     document.querySelector('#weatherIcon').src = `https://openweathermap.org/img/wn/${icon}@2x.png`
 
     document.querySelector('#temperatureDay').innerHTML = Math.trunc(data.list[0].main.temp) + '°'
@@ -94,17 +105,56 @@ function loadWeather(data) {
     document.querySelector('#temperatureNight').innerHTML = Math.trunc(data.list[temperatureIndex].main.temp) + '°'
 
     //details
-    document.querySelector('#rainfallInfo').innerHTML = data.list[0].rain['3h']+'mm'
-    document.querySelector('#windInfo').innerHTML = degreesToDirection(data.list[0].wind.deg) + ' ' + data.list[0].wind.speed + 'km/h'
+    if (typeof data.list[0].rain !== 'undefined' && typeof data.list[0].rain['3h'] !== 'undefined') {
+        document.querySelector('#rainfallInfo').innerHTML = data.list[0].rain['3h'] + 'mm';
+    } else {
+        document.querySelector('#rainfallInfo').innerHTML = 'no data';
+    }
+
+    const unit = localStorage.getItem('units')
+    let speed;
+    if(unit=='metric') {
+        const kmh =  data.list[0].wind.speed*3.6
+        speed = kmh.toFixed(2) + ' km/h'
+    } else {
+        const mph = data.list[0].wind.speed*2.23694
+        speed = mph.toFixed(2) + ' mph'
+    }
+    
+    document.querySelector('#windInfo').innerHTML = degreesToDirection(data.list[0].wind.deg) + ' ' + speed
     document.querySelector('#humidityInfo').innerHTML = data.list[0].main.humidity + '%'
     document.querySelector('#apInfo').innerHTML = data.list[0].main.pressure+'hpa'
 
-}
+    //5 days
+    const weekView = document.querySelector('#weekView')
+    weekView.innerHTML=''
+    let index=0;
 
-function degreesToDirection(degrees) {
-    const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N']
-    const index = Math.round(degrees / 45)
-    return directions[index % 8]
+    for(let i=0; i<5; i++) {
+        
+        const parent = createDiv('div',weekView,null,'weekViewContainer')
+
+        //date
+        const dateContainer = createDiv('div',parent,null,'dateContainer')
+        const date = new Date();
+        date.setDate(date.getDate() + i + 1);
+        const dayOfWeek = daysOfWeek[date.getDay()];
+        const monthOfYear = monthsOfYear[date.getMonth()];
+        const dayOfMonth = date.getDate();
+        createDiv('h3', dateContainer, `${dayOfWeek}`);
+        createDiv('p', dateContainer, `${monthOfYear} ${dayOfMonth}`);
+
+        //temperatures
+        const tempContainer = createDiv('div',parent,null,'tempContainer')
+        createDiv('div',tempContainer,Math.trunc(data.list[index].main.temp) + '°')
+        createDiv('div',tempContainer,Math.trunc(data.list[index+temperatureIndex].main.temp) + '°','tempNight')
+
+        //icon
+        const icon = createDiv('img',parent)
+        icon.src = `https://openweathermap.org/img/wn/${data.list[index].weather[0].icon}@2x.png`
+
+        index+=8
+    }
 }
 
 

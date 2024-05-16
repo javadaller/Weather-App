@@ -12,6 +12,7 @@ export async function details() {
     const preview = document.querySelector('#preview')
     const previewArray = Array.from(preview.children)
     const weekSelect = document.querySelector('#weekSelect')
+    const weekView = document.querySelector('#weekView')
 
     const status = div.getAttribute('status')
 
@@ -51,11 +52,13 @@ export async function details() {
             if (element!=previewArray[3]) {
                 if(element==previewArray[0] || element==previewArray[2]) {
                     element.style.display='flex'
-                } else {
+                } else if(element!=weekView) {
                     element.style.display='block'
                 }
             }
         });
+
+        weekView.style.display='none'
 
         await sleep(300)
         detailsIcon.style.display='block'

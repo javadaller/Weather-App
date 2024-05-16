@@ -1,0 +1,37 @@
+#weekView {
+    @include box(95%,80%);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .weekViewContainer {
+        @include box(100%,15%);
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 3%;
+        margin:1%;
+
+        border-radius: 20px;
+        transform:translateX(-16%);
+
+        background-color: rgba(0, 0, 0, 0.178);
+
+        .dateContainer {
+
+            p {
+                color:var(--colorText2);
+            }
+            
+        }
+
+        .tempContainer {
+
+            .tempNight {
+                color:var(--colorText2);
+            }
+        }
+    }
+}

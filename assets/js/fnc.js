@@ -1,3 +1,12 @@
+//------------------------------------------------------------------------------------------
+//DEGREES TO DIRECTION
+export function degreesToDirection(degrees) {
+  const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N']
+  const index = Math.round(degrees / 45)
+  return directions[index % 8]
+}
+
+//------------------------------------------------------------------------------------------
 // CREATE DIV
 export function createDiv(type,parent,content,className) {
   const newDiv=document.createElement(type);
@@ -19,7 +28,7 @@ export function sleep(ms) {
 
 //------------------------------------------------------------------------------------------
 // ESCAPE HTML
-export function escapeHtml(text) {
+export function escapeHTML(text) {
   var map = {
     '&': '&amp;',
     '<': '&lt;',

@@ -2,9 +2,10 @@ footer {
     @include box(100%,3dvh);
 
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding:0 3%;
+    gap:50px;
 
     color:var(--colorText1);
     //background-color: var(--color11);
@@ -12,8 +13,9 @@ footer {
     #socials {
         @include box(15%,100%);
         display:flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
+        gap:50px;
 
         img {
             height:60%;
@@ -26,6 +28,6 @@ footer {
     }
 
     p {
-        font-size: 3vw;
+        font-size: 1rem;
     }
 }
