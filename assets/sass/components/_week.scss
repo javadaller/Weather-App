@@ -10,7 +10,7 @@
     left:13%;
 
     .weekViewContainer {
-        @include box(100%,15%);
+        @include box(100%,14%);
         display:flex;
         justify-content: space-between;
         align-items: center;
@@ -37,5 +37,13 @@
                 color:var(--colorText2);
             }
         }
+    }
+
+    #weekChart {
+        position: absolute;
+        bottom:0;
+        right:0;
+        @include box(50%);
+        border:solid 1px red;
     }
 }

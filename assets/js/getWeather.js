@@ -1,5 +1,7 @@
-import { createDiv, degreesToDirection } from "./fnc.js"
+import { createDiv, degreesToDirection, sleep } from "./fnc.js"
 import { getImage, getBackground } from "./getImage.js"
+
+
 
 export async function getWeather(latitude, longitude, city) {
 
@@ -64,10 +66,12 @@ async function weather(city,country) {
 }
 
 
-function loadWeather(data) {
+async function loadWeather(data) {
     console.log(data)
 
-    getBackground(data.list[0].weather[0].main)
+    let type = data.list[0].weather[0].main=='Clear'? 'sunny' : data.list[0].weather[0].main
+
+    getBackground(type)
 
     // Location
     document.querySelector('#locationCity').innerHTML = data.city.name
@@ -134,6 +138,7 @@ function loadWeather(data) {
     const weekView = document.querySelector('#weekView')
     weekView.innerHTML=''
     let index=0;
+    const tempArray = []
 
     for(let i=0; i<5; i++) {
         
@@ -154,12 +159,37 @@ function loadWeather(data) {
         createDiv('div',tempContainer,Math.trunc(data.list[index].main.temp) + '°')
         createDiv('div',tempContainer,Math.trunc(data.list[index+temperatureIndex].main.temp) + '°','tempNight')
 
+        tempArray.push(data.list[index].main.temp)
+
         //icon
         const icon = createDiv('img',parent)
         icon.src = `https://openweathermap.org/img/wn/${data.list[index].weather[0].icon}@2x.png`
 
         index+=8
     }
+
+    //chart
+    await sleep(1000)
+    const ctx = document.getElementById('weekChart')
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
+          datasets: [{
+            label: '°',
+            data: tempArray,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+    });
 }
 
 
