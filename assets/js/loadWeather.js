@@ -6,7 +6,7 @@ export async function loadWeather(data) {
 
     let type = data.list[0].weather[0].main=='Clear'? 'sunny' : data.list[0].weather[0].main
 
-    getBackground(type)
+    getBackground(type,data.city.name)
 
     // Location
     document.querySelector('#locationCity').innerHTML = data.city.name

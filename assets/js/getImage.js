@@ -33,10 +33,12 @@ function setImage(data) {
     }
 }
 
-export async function getBackground(type) {
+export async function getBackground(type,city) {
     const apiKey = '-ACYigN6ETwqqDjHpy9iznV_rV7txCjhueXeKxr8J3E'
 
-    const apiUrl = `https://api.unsplash.com/search/photos?query=${type}&client_id=${apiKey}`
+    console.log(type+' weather '+city)
+
+    const apiUrl = `https://api.unsplash.com/search/photos?query=${type+' weather '+city}&client_id=${apiKey}`
 
     try {
         const response = await fetch(apiUrl)
