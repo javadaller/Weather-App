@@ -31,7 +31,9 @@ export function init() {
                 localStorage.setItem('lat',position.coords.latitude)
                 localStorage.setItem('long',position.coords.longitude)
             });
-          }         
+        } else {
+            getWeather(null,null,'Charleroi')
+        }       
     } else {
         getWeather(localStorage.getItem('lat'),localStorage.getItem('long'),location)
     }  
