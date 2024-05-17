@@ -1,37 +1,42 @@
-.flexCenter {
+.flexCenterCenter {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.flexCenterAround {
+.flexAroundCenter {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.flexCenterColumn {
+.flexBetweenCenter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexEndCenter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.flexColumnCenterCenter {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.flexCenterColumnAround {
+.flexColumnAroundCenter {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
-.flexCenterColumnBetween {
+.flexColumnBetweenCenter {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-}
-.absoluteCenter {
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
 }

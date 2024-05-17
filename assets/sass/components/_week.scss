@@ -1,19 +1,14 @@
 #weekView {
     @include box(60%,80%);
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @extend .flexColumnCenterCenter;
 
     position: absolute;
     top:-5%;
-    left:13%;
+    left:18%;
 
     .weekViewContainer {
-        @include box(100%,14%);
-        display:flex;
-        justify-content: space-between;
-        align-items: center;
+        @include box(100%,12%);
+        @extend .flexBetweenCenter;
 
         padding: 3%;
         margin:1%;
@@ -32,10 +27,20 @@
         }
 
         .tempContainer {
+            display: flex;
+
+            div {
+                font-size: 1.5rem;
+            }
 
             .tempNight {
+                font-size: 1rem;
                 color:var(--colorText2);
             }
+        }
+
+        img {
+            height:170%;
         }
     }
 

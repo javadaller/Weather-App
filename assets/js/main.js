@@ -1,5 +1,5 @@
 import { init } from "./init.js";
-import { animations } from "./animations.js";
+import { interactions } from "./interface.js";
 
 init()
-animations()
+interactions()

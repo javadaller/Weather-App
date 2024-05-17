@@ -485,10 +485,7 @@ body {
 
 footer {
   width: 100%;
-  height: 3dvh;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  height: 6dvh;
   padding: 0 3%;
   gap: 50px;
   color: var(--colorText1);
@@ -526,11 +523,12 @@ footer p {
   position: absolute;
   top: 2%;
   left: 2%;
-  width: 10vw;
-  height: 10vw;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.2784313725);
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -548,9 +546,6 @@ footer p {
 }
 #preview #cityImage {
   z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
   width: 1000%;
   height: 50%;
   -o-object-fit: cover;
@@ -568,19 +563,9 @@ footer p {
 }
 #preview #previewWeather #weather {
   padding-top: 8%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 #preview #previewWeather #weather h2 {
   text-align: center;
-}
-#preview #previewWeather #temperatures {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 #preview #previewWeather #temperatures #temperatureDay {
   font-size: 3rem;
@@ -594,8 +579,6 @@ footer p {
 #preview #details {
   width: 80%;
   height: 80%;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   top: 10%;
   left: 2%;
@@ -625,20 +608,13 @@ footer p {
 #weekView {
   width: 60%;
   height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: absolute;
   top: -5%;
-  left: 13%;
+  left: 18%;
 }
 #weekView .weekViewContainer {
   width: 100%;
-  height: 14%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  height: 12%;
   padding: 3%;
   margin: 1%;
   border-radius: 20px;
@@ -648,8 +624,18 @@ footer p {
 #weekView .weekViewContainer .dateContainer p {
   color: var(--colorText2);
 }
+#weekView .weekViewContainer .tempContainer {
+  display: flex;
+}
+#weekView .weekViewContainer .tempContainer div {
+  font-size: 1.5rem;
+}
 #weekView .weekViewContainer .tempContainer .tempNight {
+  font-size: 1rem;
   color: var(--colorText2);
+}
+#weekView .weekViewContainer img {
+  height: 170%;
 }
 
 #weekChartContainer {
@@ -660,31 +646,85 @@ footer p {
   height: auto;
 }
 
-main {
-  width: 100%;
-  height: 97dvh;
+.flexCenterCenter, #preview #details, main #bloc1 #celciusSelect, main #bloc2 #fahrenheitSelect, main #weekSelect {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flexAroundCenter {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexBetweenCenter, #weekView .weekViewContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexEndCenter, footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flexColumnCenterCenter, #weekView, main, main #bloc2 #detailsSelect {
+  display: flex;
   flex-direction: column;
-  padding: 5%;
+  justify-content: center;
+  align-items: center;
 }
-@media only screen and (min-width: 500px) {
-  main {
-    width: 500px;
-  }
+
+.flexColumnAroundCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
-main #background {
+
+.flexColumnBetweenCenter, #preview #previewWeather #weather, #preview #previewWeather #temperatures {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.absoluteTopLeft, #preview #cityImage, main #background {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background-image: url("../images/backgrounds/rainy2.jpg");
+}
+
+.backgroundImageDefault, main #background {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+main {
+  width: 90%;
+  height: 94dvh;
+  margin: auto;
+}
+@media only screen and (min-width: 480px) {
+  main {
+    width: 480px;
+  }
+}
+main #background {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url("");
   filter: opacity(70%);
 }
 main #bloc1 {
@@ -706,9 +746,6 @@ main #bloc1 #celciusSelect {
   height: 15%;
   background-color: var(--color12);
   border-radius: 50% 0% 50% 0%/50% 0% 50% 0%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   align-self: flex-end;
   cursor: pointer;
 }
@@ -733,10 +770,6 @@ main #bloc2 #detailsSelect {
   color: var(--colorText1);
   background-color: var(--color12);
   border-radius: 50% 0% 50% 0%/50% 0% 50% 0%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 main #bloc2 #detailsSelect img {
@@ -754,9 +787,6 @@ main #bloc2 #fahrenheitSelect {
   height: 50%;
   background-color: var(--color13);
   border-radius: 0% 50% 0% 50%/0% 50% 0% 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 main #bloc2 #fahrenheitSelect img {
@@ -772,9 +802,6 @@ main #weekSelect {
   background-color: var(--color2);
   border-radius: 50% 0% 50% 0%/50% 0% 50% 0%;
   align-self: flex-start;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 main #weekSelect img {

@@ -1,27 +1,22 @@
-main {
-    @include box(100%,97dvh);
+@use "../extends/_extends_dir";
 
-    @include responsive(500px) {
-        width:500px;
+main {
+    @include box(90%,94dvh);
+    @include responsive(480px) {
+        width:480px;
     }
 
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @extend .flexColumnCenterCenter;
 
-    padding: 5%;
+    margin:auto;
+    //padding: 5%;
 
     #background {
-        position: absolute;
-        top:0;
-        left:0;
+        @extend .absoluteTopLeft;
         z-index: -1;
         @include box(100%);
-        background-image: url('../images/backgrounds/rainy2.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        background-image: url('');
+        @extend .backgroundImageDefault;
         filter:opacity(70%);
     }
 
@@ -43,9 +38,7 @@ main {
             background-color: var(--color12);
             border-radius: 50% 0% 50% 0% / 50% 0% 50% 0%;
     
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @extend .flexCenterCenter;
     
             align-self: flex-end;
     
@@ -73,12 +66,8 @@ main {
             color:var(--colorText1);
             background-color: var(--color12);
             border-radius: 50% 0% 50% 0% / 50% 0% 50% 0%;
-            //align-self: flex-start;
     
-            display:flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            @extend .flexColumnCenterCenter;
     
             cursor:pointer;
     
@@ -101,11 +90,8 @@ main {
             @include box(15%,50%);
             background-color: var(--color13);
             border-radius: 0% 50% 0% 50% / 0% 50% 0% 50%;
-            //align-self: flex-start;
     
-            display:flex;
-            justify-content: center;
-            align-items: center;
+            @extend .flexCenterCenter;
     
             cursor:pointer;
     
@@ -126,9 +112,7 @@ main {
         border-radius: 50% 0% 50% 0% / 50% 0% 50% 0%;
         align-self: flex-start;
 
-        display:flex;
-        justify-content: center;
-        align-items: center;
+        @extend .flexCenterCenter;
 
         cursor:pointer;
 

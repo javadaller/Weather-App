@@ -1,42 +1,4 @@
-import { details } from "./details.js"
-import { escapeHTML } from "./fnc.js"
-import { getWeather } from "./getWeather.js"
-import { week } from "./week.js"
-
-
-//INIT
-export function init() {
-    //intro fadenIn
-    document.body.classList.add('fadeIn1s')
-
-    //display
-    document.querySelector('#details').style.display = 'none'
-    document.querySelector('#weekView').style.display = 'none'
-    document.querySelector('#locationID').style.display = 'none'
-    document.querySelector('#goBack').style.display = 'none'
-    document.querySelector('#goBackText').style.display = 'none'
-    document.querySelector('#weekChartContainer').style.display = 'none'
-
-    //LOCAL STORAGE
-    const units = localStorage.getItem('units')
-    if (units==null) {
-        localStorage.setItem('units','metric')
-    }
-
-    const location = localStorage.getItem('city')
-    if (location==null) {
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                getWeather(position.coords.latitude, position.coords.longitude);
-                localStorage.setItem('lat',position.coords.latitude)
-                localStorage.setItem('long',position.coords.longitude)
-            });
-          }         
-    } else {
-        getWeather(localStorage.getItem('lat'),localStorage.getItem('long'),location)
-    }  
-
-    //INTERFACE
+export function interactions() {
 
     //location
     let isOpen = false
