@@ -13,9 +13,9 @@ main {
 
     #background {
         @extend .absoluteTopLeft;
+        object-fit: cover;
         z-index: -1;
         @include box(100%);
-        background-image: url('');
         @extend .backgroundImageDefault;
         filter:opacity(70%);
     }

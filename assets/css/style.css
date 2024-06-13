@@ -721,10 +721,11 @@ main {
   }
 }
 main #background {
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: -1;
   width: 100%;
   height: 100%;
-  background-image: url("");
   filter: opacity(70%);
 }
 main #bloc1 {

@@ -58,6 +58,5 @@ function setBackground(data) {
     const background = document.querySelector('#background')
     const random = Math.floor(Math.random() * data.results.length)
 
-    const url = data.results[random].urls.regular
-    background.style.backgroundImage=`url(${url})`
+    background.src = data.results[random].urls.regular
 }
